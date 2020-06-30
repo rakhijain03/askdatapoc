@@ -12,15 +12,6 @@ persist_with: askdata_cci_default_datagroup
 
 
 
-explore: call_demographics {
-  from: final_feb_call_info
-  join: feb_demographics {
-    sql_on: ${feb_demographics.caller_id} = ${call_demographics.caller_id};;
-    type: left_outer
-    relationship: many_to_one
-  }
-}
-
 explore: call_summary {
   from: call_info_merged_data
   join:  caller_demographics{
