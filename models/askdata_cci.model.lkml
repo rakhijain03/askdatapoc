@@ -13,6 +13,11 @@ persist_with: askdata_cci_default_datagroup
 
 
 explore: call_summary {
+  access_filter: {
+    field: caller_demographics.state
+    user_attribute: state_filter
+  }
+
   from: call_info_merged_data
   join:  caller_demographics{
     sql_on: ${caller_demographics.caller_id} = ${call_summary.caller_id} ;;
