@@ -11,12 +11,11 @@ datagroup: askdata_cci_default_datagroup {
 persist_with: askdata_cci_default_datagroup
 
 access_grant: nystateonly {
-  allowed_values: ["New York"]
+  allowed_values: ["New"]
   user_attribute: state_filter
 }
 
 explore: call_summary {
-  required_access_grants:  [nystateonly]
   from: call_info_merged_data
   join:  caller_demographics{
     sql_on: ${caller_demographics.caller_id} = ${call_summary.caller_id} ;;
