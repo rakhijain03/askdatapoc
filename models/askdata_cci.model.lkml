@@ -16,6 +16,12 @@ access_grant: nystateonly {
 }
 
 explore: call_summary {
+
+    access_filter: {
+      user_attribute: state_filter
+      field: caller_demographics.state
+    }
+
   from: call_info_merged_data
   join:  caller_demographics{
     sql_on: ${caller_demographics.caller_id} = ${call_summary.caller_id} ;;
@@ -37,4 +43,3 @@ explore: call_summary {
   #}
 
 }
-
