@@ -17,10 +17,6 @@ access_grant: nystateonly {
 
 explore: call_summary {
 
-    access_filter: {
-      user_attribute: state_filter
-      field: caller_demographics.state
-    }
 
   from: call_info_merged_data
   join:  caller_demographics{
