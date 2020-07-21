@@ -10,21 +10,9 @@ datagroup: askdata_cci_default_datagroup {
 
 persist_with: askdata_cci_default_datagroup
 
-
-
-explore: call_demographics {
-  from: final_feb_call_info
-  access_filter: {
-    user_attribute: state_filter
-    field: feb_demographics.state
-  }
-
-  join: feb_demographics {
-    sql_on: ${feb_demographics.caller_id} = ${call_demographics.caller_id};;
-    type: left_outer
-    relationship: many_to_one
-
-  }
+access_grant: nystateonly {
+  allowed_values: ["New"]
+  user_attribute: state_filter
 }
 
 explore: call_summary {
@@ -49,3 +37,4 @@ explore: call_summary {
   #}
 
 }
+
